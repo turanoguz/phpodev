@@ -258,12 +258,16 @@
     if(isset($_SESSION['user'])){
       echo '
     <div class="form-popup" id="myForm">
-      <form action="/action_page.php" class="form-container">
-        <h1>Login</h1>
+      <form action="soru_ekle.php" class="form-container" method="post">
+        <h1>Soru Sor</h1>
 
-        <label for="email"><b>Soru</b></label>
-        <input type="text" placeholder="Sorunuzu Yazınız" name="yenisoru" required>
+        <label for="baslık"><b>Başlık</b></label>
+        <input type="text" placeholder="Soru Başlığını yazınız" name="sorubaslık" required>
 
+        <label for="soru"><b>Soru</b></label>
+        <!--<input type="textare" placeholder="Sorunuzu Yazınız" name="1soru" required>-->
+        <textarea  name="soru" placeholder="Sorunuzu Yazınız" rows="4" cols="35" required> </textarea>
+        
         <label for="psw"><b>Kategori</b></label>
         <select name="kategori" id="kategori">
           <option value="Genel">Genel</option>
@@ -280,7 +284,7 @@
       <form action="login.php" class="form-container">
         
 
-        <label for="email"><b>Soru sormak için lütfen giriş yapınız</b></label>
+        <label for="info"><b>Soru sormak için lütfen giriş yapınız</b></label>
         <button  class="btn">Giriş Yap</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Kapat</button>
       </form>

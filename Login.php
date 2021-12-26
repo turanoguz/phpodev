@@ -15,8 +15,10 @@
     <?php
     
     session_start();
-    $adres=$_SERVER['HTTP_REFERER'];
+    $adres=$_SERVER['HTTP_REFERER']; 
+    
     echo $adres;
+    
 
 
     //açık oturum varmı kontrol ediyoruz
@@ -48,12 +50,14 @@
         }
 
         if(empty($emailError) && empty($passwordError)){
-            $query="select * from users where email=:email ";
+            $query="select * from users where email=:email and password=:password ";
             if ($stmt = $pdo->prepare($query)) {
                 
-                $stmt->bindParam(":email",$paramEmail,PDO::PARAM_STR);
-
                 $paramEmail=trim($_POST['email']);
+                $paramPassword=trim($_POST['password']);
+                $stmt->bindParam(":email",$paramEmail,PDO::PARAM_STR);
+                $stmt->bindParam(":password",$paramPassword,PDO::PARAM_STR);
+                
 
                 if($stmt->execute()){
                     if ($stmt->rowCount()==1 ) {
@@ -69,8 +73,9 @@
                             $_SESSION['user']=$userName;
                             $_SESSION['id']=$id;
                             $_SESSION['eposta']=$email;
+                            
                             header("location: $adres");
-                            //header("location: index.php");
+                            
                             exit;
 
                         }
@@ -118,7 +123,7 @@
                 <span class="invalid-feedback"><?php echo $emailError; ?></span>
             </div>
             <div class="form-group">
-                <input class="form-control <?php echo (!empty($passwordError)) ? 'is-invalid' : ''; ?>s" type="password" name="password" placeholder="Parola">
+                <input class="form-control <?php echo (!empty($passwordError)) ? 'is-invalid' : ''; ?>" type="password" name="password" placeholder="Parola">
                 <span class="invalid-feedback"><?php echo $passwordError; ?></span>
             </div>
             <div class="form-group">
