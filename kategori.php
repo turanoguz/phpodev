@@ -11,7 +11,7 @@
     <title>Modern Business - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-   
+    
     <script src="https://kit.fontawesome.com/2f6aeee546.js" crossorigin="anonymous"></script>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/bootstrap/css/modern-business.css" rel="stylesheet">
@@ -47,7 +47,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+        <button class="yenisoru">Soru Sor </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -100,10 +100,13 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
           <?php 
+          if($_GET){
+            $name = $_GET['kategori'];
+          }
+            
+                    
 
-         
-
-          $query=$pdo->query("select * from sorular inner join users on users.ıd=sorular.soru_ekleyen order by soru_id desc",PDO::FETCH_ASSOC) ;
+          $query=$pdo->query("select * from sorular inner join users on users.ıd=sorular.soru_ekleyen where soru_kategori='$name' order by soru_id desc",PDO::FETCH_ASSOC) ;
           
           if($query->rowCount()){
             foreach($query as $row ){
@@ -189,7 +192,7 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
 
-    
+          
 
           <div class="card my-4">
             <h5 class="card-header">Categories</h5>
@@ -219,6 +222,10 @@
           </div>
           
           
+          s
+
+          <!-- Side Widget -->
+          
 
         </div>
 
@@ -236,12 +243,11 @@
         <h1>Soru Sor</h1>
 
         <label for="baslık"><b>Başlık</b></label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="Soru Başlığını yazınız" name="sorubaslık" required>
-        
+        <input type="text" placeholder="Soru Başlığını yazınız" name="sorubaslık" required>
 
         <label for="soru"><b>Soru</b></label>
         <!--<input type="textare" placeholder="Sorunuzu Yazınız" name="1soru" required>-->
-        <textarea class="form-control" id="validationDefault01"  name="soru" placeholder="Sorunuzu Yazınız" rows="4" cols="35" required> </textarea>
+        <textarea  name="soru" placeholder="Sorunuzu Yazınız" rows="4" cols="35" required> </textarea>
         
         <label for="psw"><b>Kategori</b></label>
         <select name="kategori" id="kategori">

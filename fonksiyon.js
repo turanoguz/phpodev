@@ -4,7 +4,6 @@
 function yorum(){
     
     let data = $("#yorum").serialize()
-    //alert(data)
     
     $.ajax({
         url: "yorum.php",
@@ -17,7 +16,7 @@ function yorum(){
                 alert(e.hata)
 
             }else{
-                alert(e.ok)
+            
                 
                 $("#sonuc").prepend(e.mesaj)
                 $("#yorumyaztext").val('')

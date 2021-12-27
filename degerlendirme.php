@@ -1,6 +1,6 @@
 
 <?php
-//session_start();
+
 include("database.php");
 
 if(!isset($_SESSION)){
@@ -35,7 +35,7 @@ if(isset($_SESSION['user'])){
                 
                 break;
         }
-        //mysqli_query($conn, $query);
+    
         $sonuç=$pdo->query($query,PDO::FETCH_ASSOC) ;
         echo getRating($post_id);
         exit(0);
@@ -53,38 +53,7 @@ else{
 }
 
 
-/*
-if (isset($_POST['action'])) {
-    $post_id= $_POST['post_id'];
-    $action = $_POST['action'];
-    
-    
 
-    switch ($action) {
-        case 'like':
-            $query = "insert into begeni_bilgisi(soru_id,user_id,bilgi) 
-            values ($post_id,$user_id,'$action') ON DUPLICATE KEY UPDATE bilgi='like'";
-            break;
-        case 'dislike':
-            $query = "insert into begeni_bilgisi(soru_id,user_id,bilgi) 
-            values ($post_id,$user_id,'$action') ON DUPLICATE KEY UPDATE bilgi='dislike'";
-            break;
-        case 'unlike':
-            $query = "delete from begeni_bilgisi where user_id=$user_id and soru_id=$post_id";
-            break;
-        case 'undislike':
-            $query = "delete from begeni_bilgisi where user_id=$user_id and soru_id=$post_id";
-            break;    
-        default:
-            
-            break;
-    }
-    //mysqli_query($conn, $query);
-    $sonuç=$pdo->query($query,PDO::FETCH_ASSOC) ;
-    echo getRating($post_id);
-    exit(0);
-}
-*/
 function getRating($id){
     $pdo = new PDO("mysql:host=localhost;dbname=php", "root", "");
     
@@ -95,22 +64,7 @@ function getRating($id){
 
     $dislikes_query="select count(*) from begeni_bilgisi where soru_id=$id and bilgi='dislike'";
 
-/*
-    $sth = $pdo->prepare($likes_query);
-    $sth->execute();
-    $likes = $sth->fetchAll();
 
-    
-    $sth = $pdo->prepare($dislikes_query);
-    $sth->execute();
-    $dislikes = $sth->fetchAll();
-*/
-/*
-    $likes_rs = mysqli_query($conn, $likes_query);
-    $dislikes_rs = mysqli_query($conn, $dislikes_query); 
-    $likes = mysqli_fetch_array($likes_rs);
-    $dislikes = mysqli_fetch_array($dislikes_rs);
-  */  
 
     
     $likes=$pdo->query($likes_query)->fetch(PDO::FETCH_BOTH);

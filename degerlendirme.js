@@ -7,7 +7,7 @@ $(document).ready(function(){
         
         let action;
         $clicked_btn=$(this);
-        //console.log($clicked_btn.hasClass==="fa-thumbs-up")
+        
         if ($clicked_btn.hasClass('fa-thumbs-o-up')) {
             action='like'
 
@@ -25,13 +25,7 @@ $(document).ready(function(){
             dataType: "JSON",
             success: function(data){
                 
-               //console.log(typeof(data))
-               //res = toObject(data)
-               //console.log("data "+data.post_id+"+++"+data.action+" "+typeof(data))
-               //res =JSON.parse(JSON.stringify(data))
-               //res=JSON.parse(data)
-               //console.log("res : "+typeof( res)+" "+res.likes + "  "+res)
-               //console.log(res)
+               
                
                 if(action=='like'){
                     
@@ -58,7 +52,7 @@ $(document).ready(function(){
         let soru_id=$(this).data('id');
         let action;
         $clicked_btn=$(this);
-        //console.log($clicked_btn.hasClass==="fa-thumbs-down")
+        
         if ($clicked_btn.hasClass('fa-thumbs-o-down')) {
             action='dislike'
 

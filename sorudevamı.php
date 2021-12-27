@@ -56,19 +56,11 @@
 
                             //echo $lin;
                             $query=$pdo->query("select * from sorular inner join users on users.ıd = sorular.soru_ekleyen where soru_id={$lin}",PDO::FETCH_ASSOC);
-                            /*$row=fetch($query);
-                            $kontrol1=$query-rowCount();*/
-
-                            /*$sorgu="select * from sorular inner join users on users.ıd = sorular.soru_ekleyen where soru_id=?";
-                            $sorgu->execute(array($lin));
-                            $row=fetch($sorgu);
-                            $kontrol=$sorgu->rowCount();
-                            */
+                            
 
                             if($query->rowCount()){
                                 foreach ($query as $row) {
-                                    //echo $key['soru_baslık'];
-                                    # code...
+                                    
                                 }
 
                                 
