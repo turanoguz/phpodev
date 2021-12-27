@@ -19,6 +19,7 @@
       session_start();
       require_once("database.php");
       require_once("yorum_begeni.php");
+      
     ?>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -87,18 +88,21 @@
                                                     $zaman=explode(" ",$row['soru_tarih']);
                                                     echo $zaman[0]." Saat : ".$zaman[1] ;
                                                 ?>
-                                                &nbsp &nbsp
+                                                &nbsp; &nbsp;
                                                 <i class="fas fa-user-tie"></i>
                                                 <a href="#">
                                                     <?php
                                                     echo $row['name'] 
                                                     ?>
                                                 </a>
+                                                &nbsp; &nbsp;
+                                                
                                                  
                                                 </div>
+
                                                 <!-- Post categories-->
-                                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                                                <a class="badge bg-secondary text-decoration-none link-light" href="kategori.php?kategori=<?php echo $row['soru_kategori']; ?>"><?php echo $row['soru_kategori']; ?></a>
+                                                
                                             </header>
                                             <!-- Post content-->
                                             <section class="mb-5">
@@ -223,43 +227,36 @@
                         
                 <!-- Side widgets-->
                 <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="card my-4">
+                        <h5 class="card-header">Kategoriler</h5>
+                    <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+          <?php
+            $sorgu=$pdo->query("select distinct soru_kategori from sorular");
+
+            if($sorgu->rowcount()){
+              foreach ($sorgu as $item) {
+                ?>
+                  <li>
+                      <a href="kategori.php?kategori=<?php echo $item['soru_kategori']; ?> "><?php echo $item['soru_kategori']; ?></a>
+                  </li>
+
+                <?php
+              }
+
+            }
+
+          ?>
+            </div>
+            </div>
+            </div>
+          </div>
+                    
+                    
                     <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
