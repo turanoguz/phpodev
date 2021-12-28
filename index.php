@@ -72,13 +72,7 @@
     <!-- Page Content -->
     <div class="container">
     <h3 class="mt-4 mb-3">  
-			<div class="input-group">
-			<input type="text" class="form-control" placeholder="soru ve cevap ara !">
-			<span class="input-group-btn">
-			<button class="btn btn-secondary" type="button">Ara</button>
-			</span>
-			</div>
-	
+			
 	
 	
 	</h3>
@@ -174,15 +168,7 @@
 
           
 
-          <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
-          </ul>
+          
 
         </div>
 
@@ -192,7 +178,7 @@
     
 
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <h5 class="card-header">Kategoriler</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">

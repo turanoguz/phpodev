@@ -65,7 +65,7 @@ function getRating($id){
     $dislikes_query="select count(*) from begeni_bilgisi where soru_id=$id and bilgi='dislike'";
 
 
-
+    
     
     $likes=$pdo->query($likes_query)->fetch(PDO::FETCH_BOTH);
     $dislikes=$pdo->query($dislikes_query)->fetch(PDO::FETCH_BOTH);

@@ -47,7 +47,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <button class="yenisoru">Soru Sor </button>
+        
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -177,16 +177,7 @@
 
           
 
-          <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
-          </ul>
-
+          
         </div>
 
         <!-- Sidebar Widgets Column -->
@@ -195,7 +186,7 @@
           
 
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <h5 class="card-header">Kategoriler</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
@@ -222,7 +213,7 @@
           </div>
           
           
-          s
+          
 
           <!-- Side Widget -->
           
